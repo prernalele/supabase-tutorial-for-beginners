@@ -12,10 +12,12 @@ const Create = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("supabase", supabase);
+
     if (!title || !method || !rating) {
       setFormError("Please fill in all the fields correctly");
       return;
     }
+
     const { data, error } = await supabase
       .from("smoothies")
       .insert([{ title, method, rating }])
